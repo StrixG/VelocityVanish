@@ -43,8 +43,8 @@ object DependencyManager {
                 }
             }
 
-            essentialsXHook.name -> {
-                EnhancedVelocityHook(name).apply {
+            "EnhancedVelocity" -> {
+                EnhancedVelocityHook().apply {
                     if (Settings.velocitySupport) {
                         this.register()
                     }
