@@ -1,6 +1,6 @@
 package ir.syrent.velocityvanish.spigot.hook
 
-class CMIHook(name: String) : Dependency(name) {
+class CMIHook : Dependency("CMI") {
 
     override fun features(): List<String> {
         return mutableListOf(

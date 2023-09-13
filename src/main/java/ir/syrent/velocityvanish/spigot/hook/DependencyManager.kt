@@ -5,67 +5,79 @@ import ir.syrent.velocityvanish.spigot.storage.Settings
 
 object DependencyManager {
 
-    var protocolLibHook: ProtocolLibHook
+    var protocolLibHook: ProtocolLibHook = ProtocolLibHook()
         private set
-    /*var proCosmeticsHook: ProCosmeticsHook
-        private set*/
-    var placeholderAPIHook: PlaceholderAPIHook
+    var placeholderAPIHook: PlaceholderAPIHook = PlaceholderAPIHook(VelocityVanishSpigot.instance)
         private set
-    var sayanChatHook: SayanChatHook
+    var essentialsXHook: EssentialsXHook = EssentialsXHook()
         private set
-    var essentialsXHook: EssentialsXHook
+    var sunlightHook: SunlightHook = SunlightHook()
         private set
-    var sunlightHook: SunlightHook
+    var squareMapHook: SquareMapHook = SquareMapHook()
         private set
-    var squareMapHook: SquareMapHook
+    var discordSRVHook: DiscordSRVHook = DiscordSRVHook()
         private set
-    var discordSRVHook: DiscordSRVHook
-        private set
-    var cmiHook: CMIHook
+    var cmiHook: CMIHook = CMIHook()
         private set
 
-    init {
-        ProtocolLibHook("ProtocolLib").apply {
-            this.register()
-            protocolLibHook = this
-        }
-        SayanChatHook("SayanChat").apply {
-            this.register()
-            sayanChatHook = this
-        }
-        EssentialsXHook("Essentials").apply {
-            this.register()
-            essentialsXHook = this
-        }
-        SunlightHook("SunLight").apply {
-            this.register()
-            sunlightHook = this
-        }
-        EnhancedVelocityHook("EnhancedVelocity").apply {
-            if (Settings.velocitySupport) {
-                this.register()
+    fun hook(name: String) {
+        when (name) {
+            protocolLibHook.name -> {
+                ProtocolLibHook().apply {
+                    this.register()
+                    protocolLibHook = this
+                }
+            }
+
+            essentialsXHook.name -> {
+                EssentialsXHook().apply {
+                    this.register()
+                    essentialsXHook = this
+                }
+            }
+
+            sunlightHook.name -> {
+                SunlightHook().apply {
+                    this.register()
+                    sunlightHook = this
+                }
+            }
+
+            essentialsXHook.name -> {
+                EnhancedVelocityHook(name).apply {
+                    if (Settings.velocitySupport) {
+                        this.register()
+                    }
+                }
+            }
+
+            placeholderAPIHook.name -> {
+                PlaceholderAPIHook(VelocityVanishSpigot.instance).apply {
+                    this.register()
+                    placeholderAPIHook = this
+                }
+            }
+
+            squareMapHook.name -> {
+                SquareMapHook().apply {
+                    this.register()
+                    squareMapHook = this
+                }
+            }
+
+            discordSRVHook.name -> {
+                DiscordSRVHook().apply {
+                    this.register()
+                    discordSRVHook = this
+                }
+            }
+
+            cmiHook.name -> {
+                CMIHook().apply {
+                    this.register()
+                    cmiHook = this
+                }
             }
         }
-        /*ProCosmeticsHook("ProCosmetics").apply {
-            this.register()
-            proCosmeticsHook = this
-        }*/
-        PlaceholderAPIHook(VelocityVanishSpigot.instance, "PlaceholderAPI").apply {
-            this.register()
-            placeholderAPIHook = this
-        }
-        SquareMapHook("squaremap").apply {
-            this.register()
-            squareMapHook = this
-        }
-        DiscordSRVHook("DiscordSRV").apply {
-            this.register()
-            discordSRVHook = this
-        }
-        CMIHook("CMI").apply {
-            this.register()
-            cmiHook = this
-        }
     }
-
 }

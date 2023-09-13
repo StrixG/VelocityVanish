@@ -3,7 +3,7 @@ package ir.syrent.velocityvanish.spigot.hook
 import xyz.jpenilla.squaremap.api.Squaremap
 import xyz.jpenilla.squaremap.api.SquaremapProvider
 
-class SquareMapHook constructor(name: String) : Dependency(name) {
+class SquareMapHook : Dependency("squaremap") {
 
     lateinit var squareMap: Squaremap
         private set

@@ -6,7 +6,7 @@ import ir.syrent.velocityvanish.spigot.storage.Settings
 import me.clip.placeholderapi.expansion.PlaceholderExpansion
 import org.bukkit.OfflinePlayer
 
-class PlaceholderAPIHook constructor(plugin: VelocityVanishSpigot, name: String) : Dependency(name) {
+class PlaceholderAPIHook(plugin: VelocityVanishSpigot) : Dependency("PlaceholderAPI") {
 
     init {
         if (exists) {

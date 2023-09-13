@@ -2,7 +2,7 @@ package ir.syrent.velocityvanish.spigot.hook
 
 import github.scarsz.discordsrv.DiscordSRV
 
-class DiscordSRVHook(name: String) : Dependency(name) {
+class DiscordSRVHook : Dependency("DiscordSRV") {
 
     lateinit var discordSRV: DiscordSRV
 

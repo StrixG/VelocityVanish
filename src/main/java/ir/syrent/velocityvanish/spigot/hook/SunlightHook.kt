@@ -7,7 +7,7 @@ import su.nightexpress.sunlight.SunLightAPI
 import su.nightexpress.sunlight.data.UserManager
 import su.nightexpress.sunlight.data.impl.settings.UserSetting
 
-class SunlightHook(name: String) : Dependency(name) {
+class SunlightHook : Dependency("sunlight") {
 
     lateinit var sunLight: SunLight
         private set

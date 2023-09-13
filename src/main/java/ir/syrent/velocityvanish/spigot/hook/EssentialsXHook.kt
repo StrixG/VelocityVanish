@@ -4,7 +4,7 @@ import com.earth2me.essentials.Essentials
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
-class EssentialsXHook(name: String) : Dependency(name) {
+class EssentialsXHook : Dependency("Essentials") {
 
     var essentials: Essentials? = null
 

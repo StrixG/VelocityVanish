@@ -155,6 +155,7 @@ class VelocityVanishSpigot : RUoMPlugin() {
     }
 
     private fun initializeListeners() {
+        PluginEnableListener()
         PlayerJoinListener(this)
         PlayerQuitListener(this)
         PlayerInteractListener(this)
@@ -167,10 +168,6 @@ class VelocityVanishSpigot : RUoMPlugin() {
         BlockBreakListener(this)
         BlockPlaceListener(this)
         PlayerGameModeChangeListener(this)
-        if (DependencyManager.sayanChatHook.exists) {
-//            PlayerMentionListener(this)
-//            if (!velocitySupport) PrivateMessageListener(this)
-        }
         if (ServerVersion.supports(12)) {
             TabCompleteListener(this)
         }
